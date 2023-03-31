@@ -10,6 +10,6 @@ export interface Form {
   fileName: string;
   isFavourite: boolean;
   createdAt: Date;
-  startDate: Date;
-  endDate: Date;
+  startDate: Date | null;
+  endDate: Date | null;
 }
