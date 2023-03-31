@@ -28,7 +28,6 @@ const dataStore = (set: any, get: any) => ({
     });
     localStorage.setItem("Submissions", JSON.stringify(filtered));
     set({ allSubmissions: filtered });
-    console.log(filtered);
   },
   deleteSubmission: (id: string | string[]) => {
     const allSubmissions = get().allSubmissions;

@@ -83,11 +83,11 @@ const Form = ({
     ) {
       setError("Please fill out all of the fields");
       return false;
-    } else if (moment(form.startDate).isBefore(form.endDate)) {
+    } else if (moment(form.endDate).isBefore(form.startDate)) {
       setError("Start date cannot be after end date");
       return false;
     }
-    return true;
+    return false;
   };
 
   const handleSubmit = async (e: any) => {
@@ -240,6 +240,11 @@ const Form = ({
                   startDate: parseDate(e.target.value),
                 })
               }
+              defaultValue={
+                form.startDate
+                  ? moment(form.startDate).format("YYYY-MM-DD")
+                  : null
+              }
             />
           </div>
 
@@ -257,6 +262,9 @@ const Form = ({
                   ...form,
                   endDate: parseDate(e.target.value),
                 })
+              }
+              defaultValue={
+                form.endDate ? moment(form.endDate).format("YYYY-MM-DD") : null
               }
             />
           </div>
